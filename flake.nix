@@ -19,7 +19,7 @@
         let
           # Configuration - Update these values for your setup
           googleCloudProject = "dev-ai-delta";
-          vertexRegion = "us-east4";
+          vertexRegion = "us-east5";
           modelName = "claude-4-sonnet";
           smallModelName = "claude-3-5-haiku";
           
