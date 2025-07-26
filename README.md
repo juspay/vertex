@@ -12,12 +12,13 @@ One-click AI agent setup through Google Vertex AI Platform. Currently, this laun
 nix run github:juspay/vertex
 ```
 
+> [!NOTE]
+> When you run vertex, it will automatically:
+> - Use your only project if you have exactly one
+> - Let you choose interactively if you have multiple projects
+
 > [!TIP]
 > Google authentication / permission issues? Reset your gcloud config (`rm -rf ~/.config/gcloud`) and try again.
-
-> [!WARNING]
-> You may have to override the Google Cloud project to match that of your organization (see https://github.com/juspay/vertex/issues/4):
-> https://github.com/juspay/vertex/blob/d6e983f823b946735d0524537fe3f46d7179fa6a/flake.nix#L21
 
 ### NixOS
 
