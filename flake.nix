@@ -32,7 +32,8 @@
               # Check if already authenticated
               if ! gcloud auth application-default print-access-token &>/dev/null; then
                 echo "Authentication required. Opening browser..."
-                gcloud auth application-default login
+                # gcloud auth application-default login
+                gcloud auth login
                 gcloud config set project ${googleCloudProject}
                 gcloud services enable aiplatform.googleapis.com
               else
