@@ -23,8 +23,8 @@
           modelName = "claude-sonnet-4";
           smallModelName = "claude-3-5-haiku";
           
-          vertex-setup = pkgs.writeShellApplication {
-            name = "vertex-setup";
+          vertex-claude = pkgs.writeShellApplication {
+            name = "vertex-claude";
             runtimeInputs = with pkgs; [ google-cloud-sdk claude-code ];
             text = ''
               set -euo pipefail
@@ -76,7 +76,7 @@
           
           formatter = pkgs.nixpkgs-fmt;
           
-          packages.default = vertex-setup;
+          packages.default = vertex-claude;
           
           devShells.default = pkgs.mkShell {
             packages = with pkgs; [
