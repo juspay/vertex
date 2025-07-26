@@ -13,6 +13,10 @@ nix run github:juspay/vertex
 > [!TIP]
 > Google authentication / permission issues? Reset your gcloud config (`rm -rf ~/.config/gcloud`) and try again.
 
+> [!WARNING]
+> You may have to override the Google Cloud project to match that of your organization (see https://github.com/juspay/vertex/issues/4):
+> https://github.com/juspay/vertex/blob/d6e983f823b946735d0524537fe3f46d7179fa6a/flake.nix#L21
+
 ### NixOS
 
 To use this on NixOS, add the following to your `flake.nix`:
