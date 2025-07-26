@@ -1,6 +1,6 @@
 # vertex
 
-One-click AI agent setup through Google Vertex AI Platform. Currently, this launches **Claude Code** using your Google login[^cc].
+One-click AI agent setup through Google Vertex AI Platform. Currently, this launches **Claude Code** using your Google login[^cc] configured to use the **Claude Sonnet 4** model.
 
 [^cc]: See [Claude Code on Google Vertex AI](https://docs.anthropic.com/en/docs/claude-code/google-vertex-ai)
 
