@@ -13,7 +13,7 @@ nix run github:juspay/vertex
 ```
 
 > [!NOTE]
-> When you run vertex, it will automatically:
+> When you run `vertex`, it will automatically:
 > - Use your only project if you have exactly one
 > - Let you choose interactively if you have multiple projects
 
