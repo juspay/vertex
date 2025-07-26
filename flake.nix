@@ -43,7 +43,7 @@
                 echo "Already authenticated with Google Cloud."
               fi
 
-              # https://docs.anthropic.com/en/docs/claude-code/google-vertex-ai#4-configure-claude-code
+              # https://docs.anthropic.com/en/docs/claude-code/google-vertex-ai
 
               # Enable Vertex AI integration
               export CLAUDE_CODE_USE_VERTEX=1
