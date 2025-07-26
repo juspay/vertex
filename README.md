@@ -12,6 +12,12 @@ One-click AI agent setup through Google Vertex AI Platform. Currently, this laun
 nix run github:juspay/vertex
 ```
 
+This will launch Claude Code after authenticating using your Google account. You can pass custom arguments after `--`; for [example](https://www.anthropic.com/engineering/claude-code-best-practices#d-safe-yolo-mode):
+
+```sh
+nix run github:juspay/vertex -- --dangerously-skip-permissions
+```
+
 > [!NOTE]
 > When you run `vertex`, it will automatically:
 > - Use your only project if you have exactly one
