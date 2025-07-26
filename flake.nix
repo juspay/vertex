@@ -106,7 +106,7 @@
               export ANTHROPIC_SMALL_FAST_MODEL='${smallModelName}'
 
               echo "Launching Claude Code..."
-              exec claude
+              exec claude "$@"
             '';
           };
         in
