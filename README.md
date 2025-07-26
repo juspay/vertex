@@ -10,7 +10,10 @@ One-click AI agent setup through Google Vertex AI Platform
 nix run github:juspay/vertex
 ```
 
-## NixOS
+> [!TIP]
+> Google authentication / permission issues? Reset your gcloud config (`rm -rf ~/.config/gcloud`) and try again.
+
+### NixOS
 
 To use this on NixOS, add the following to your `flake.nix`:
 
