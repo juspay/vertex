@@ -20,7 +20,7 @@
           # Configuration - Update these values for your setup
           googleCloudProject = "dev-ai-delta";
           vertexRegion = "us-east5";
-          modelName = "claude-4-sonnet";
+          modelName = "claude-sonnet-4";
           smallModelName = "claude-3-5-haiku";
           
           vertex-setup = pkgs.writeShellApplication {
