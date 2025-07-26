@@ -32,8 +32,11 @@
               # Check if already authenticated
               if ! gcloud auth application-default print-access-token &>/dev/null; then
                 echo "Authentication required. Opening browser..."
-                # gcloud auth application-default login
                 gcloud auth login
+                # For some reason, we must re-auth
+                # cf. https://stackoverflow.com/a/42059661/55246
+                gcloud auth application-default login
+
                 gcloud config set project ${googleCloudProject}
                 gcloud services enable aiplatform.googleapis.com
               else
