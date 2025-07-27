@@ -6,7 +6,7 @@ One-click AI agent setup through Google Vertex AI Platform. Currently, this laun
 
 ## Usage
 
-[Install Nix](https://nixos.asia/en/install), and then:
+[nixos-unified-template](https://github.com/juspay/nixos-unified-template) is the best way to install `vertex` (the template already includes `vertex` and is configured to use the latest versions of tools). But if you only want to try it out:
 
 ```sh
 nix run github:juspay/vertex
