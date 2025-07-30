@@ -23,24 +23,6 @@ To try vertex out without installing:
 nix run github:juspay/vertex
 ```
 
-## What `vertex-claude` does
-
-Running `vertex-claude` (or the `nix run ...` command above) launch Claude Code after authenticating using your Google account. You can pass custom arguments to it; for [example](https://www.anthropic.com/engineering/claude-code-best-practices#d-safe-yolo-mode):
-
-```sh
-vertex-claude --dangerously-skip-permissions
-
-# Or
-nix run github:juspay/vertex -- --dangerously-skip-permissions
-```
-
-> [!NOTE]
-> When you run `vertex`, it will automatically:
-> - Use your only project if you have exactly one
-> - Let you choose interactively if you have multiple projects
-
-> [!TIP]
-> Google authentication / permission issues? Reset your gcloud config (`rm -rf ~/.config/gcloud`) and try again.
 
 ### NixOS
 
@@ -74,6 +56,26 @@ To use this on NixOS, add the following to your `flake.nix`:
 ```
 
 Then run `sudo nixos-rebuild switch` and use `vertex-claude` command.
+
+## What `vertex-claude` does
+
+Running `vertex-claude` (or the `nix run ...` command above) launches Claude Code after authenticating using your Google account. You can pass custom arguments to it; for [example](https://www.anthropic.com/engineering/claude-code-best-practices#d-safe-yolo-mode):
+
+```sh
+vertex-claude --dangerously-skip-permissions
+
+# Or
+nix run github:juspay/vertex -- --dangerously-skip-permissions
+```
+
+> [!NOTE]
+> When you run `vertex-claude`, it will automatically:
+> - Use your only project if you have exactly one
+> - Let you choose interactively if you have multiple projects
+
+> [!TIP]
+> Google authentication / permission issues? Reset your gcloud config (`rm -rf ~/.config/gcloud`) and try again.
+
 
 ## Goals
 
