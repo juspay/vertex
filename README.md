@@ -6,15 +6,31 @@ One-click AI agent setup through Google Vertex AI Platform. Currently, this laun
 
 ## Usage
 
-[nixos-unified-template](https://github.com/juspay/nixos-unified-template) is the best way to install `vertex` (the template already includes `vertex` and is configured to use the latest versions of tools). But if you only want to try it out:
+### Recommended Install
+
+[nixos-unified-template](https://github.com/juspay/nixos-unified-template) is the best way to install `vertex`. The template already includes `vertex` and is configured to use the latest versions of tools). 
+
+Once you setup your Nix config, run `vertex-claude` to launch it.
+
+### Temporary usage
+
+> [!WARNING]
+> This uses older version of Claude Code. Use "Recommended Install" above if you want the latest.
+
+To try vertex out without installing:
 
 ```sh
 nix run github:juspay/vertex
 ```
 
-This will launch Claude Code after authenticating using your Google account. You can pass custom arguments after `--`; for [example](https://www.anthropic.com/engineering/claude-code-best-practices#d-safe-yolo-mode):
+## What `vertex-claude` does
+
+Running `vertex-claude` (or the `nix run ...` command above) launch Claude Code after authenticating using your Google account. You can pass custom arguments to it; for [example](https://www.anthropic.com/engineering/claude-code-best-practices#d-safe-yolo-mode):
 
 ```sh
+vertex-claude --dangerously-skip-permissions
+
+# Or
 nix run github:juspay/vertex -- --dangerously-skip-permissions
 ```
 
