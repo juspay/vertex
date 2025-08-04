@@ -8,7 +8,7 @@ One-click AI agent setup through Google Vertex AI Platform. Currently, this laun
 
 ### Recommended Install
 
-[nixos-unified-template](https://github.com/juspay/nixos-unified-template) is the best way to install `vertex`. The template already includes `vertex` and is configured to use the latest versions of tools). 
+[nixos-unified-template](https://github.com/juspay/nixos-unified-template) is the best way to install `vertex`. The template already includes `vertex` (be sure to enable the "work" profile) and is configured to use the latest versions of tools. 
 
 Once you setup your Nix config, run `vertex-claude` to launch it.
 
