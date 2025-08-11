@@ -15,7 +15,7 @@ Once you setup your Nix config, run `vertex-claude` to launch it.
 ### Temporary usage
 
 > [!WARNING]
-> This uses older version of Claude Code. Use "Recommended Install" above if you want the latest.
+> This may not always use the latest version of Claude Code. Use "Recommended Install" above if you want the latest.
 
 To try vertex out without installing:
 
