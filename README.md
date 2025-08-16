@@ -6,23 +6,16 @@ One-click AI agent setup through Google Vertex AI Platform. Currently, this laun
 
 ## Usage
 
-### Recommended Install
+### macOS
 
-[nixos-unified-template](https://github.com/juspay/nixos-unified-template) is the best way to install `vertex`. The template already includes `vertex` (be sure to enable the "work" profile) and is configured to use the latest versions of tools. 
+1. Install Nix [using these instructions](https://nixos.asia/en/install)
+1. Run vertex:
+  ```sh
+  nix run github:juspay/vertex
+  ```
 
-Once you setup your Nix config, run `vertex-claude` to launch it.
-
-### Temporary usage
-
-> [!WARNING]
-> This may not always use the latest version of Claude Code. Use "Recommended Install" above if you want the latest.
-
-To try vertex out without installing:
-
-```sh
-nix run github:juspay/vertex
-```
-
+> [!TIP]
+> If you are a Nix veteran, [nixos-unified-template](https://github.com/juspay/nixos-unified-template) is the best way to install `vertex`. The template already includes `vertex` (be sure to enable the "work" profile) and is configured to use the latest versions of tools. Once you setup your Nix config, run `vertex-claude` to launch it.
 
 ### NixOS
 
