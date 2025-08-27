@@ -55,7 +55,7 @@
           };
           
           vertex-claude = pkgs.writeShellApplication {
-            name = "vertex-claude";
+            name = "claude";
             runtimeInputs = with pkgs; [ google-cloud-sdk claude-code select-gcloud-project ];
             text = ''
               set -euo pipefail
