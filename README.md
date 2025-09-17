@@ -50,6 +50,21 @@ To use this on NixOS, add the following to your `flake.nix`:
 
 Then run `sudo nixos-rebuild switch` and use `vertex-claude` command.
 
+## Editor support
+
+### Zed
+
+Zed [supports](https://zed.dev/blog/claude-code-via-acp) Claude Code. To have it use our `vertex-claude`:
+
+- First, sucessfully run `vertex-claude` using the instructions above
+- Export these environment variables in a terminal:
+  ```
+  export ANTHROPIC_VERTEX_PROJECT_ID=dev-ai-delta
+  export CLAUDE_CODE_USE_VERTEX=1
+  ```
+- Open Zed from the same terminal (important!). On macOS, you can run `open -a Zed`.
+
+
 ## What `vertex-claude` does
 
 Running `vertex-claude` (or the `nix run ...` command above) launches Claude Code after authenticating using your Google account. You can pass custom arguments to it; for [example](https://www.anthropic.com/engineering/claude-code-best-practices#d-safe-yolo-mode):
