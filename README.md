@@ -59,7 +59,7 @@ Zed [supports](https://zed.dev/blog/claude-code-via-acp) Claude Code. To have it
 - First, sucessfully run `vertex-claude` using the instructions above
 - Export these environment variables in a terminal:
   ```
-  export ANTHROPIC_VERTEX_PROJECT_ID=dev-ai-delta
+  export ANTHROPIC_VERTEX_PROJECT_ID=dev-ai-gamma  # Or, your project.
   export CLAUDE_CODE_USE_VERTEX=1
   ```
 - Open Zed from the same terminal (important!). On macOS, you can run `open -a Zed`.
