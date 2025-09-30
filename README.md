@@ -1,6 +1,6 @@
 # vertex
 
-One-click AI agent setup through Google Vertex AI Platform. Currently, this launches **Claude Code** using your Google login[^cc] configured to use the **Claude Sonnet 4** model.
+One-click AI agent setup through Google Vertex AI Platform. Currently, this launches **Claude Code** using your Google login[^cc] configured to use the **Claude Sonnet 4.5** model.
 
 [^cc]: See [Claude Code on Google Vertex AI](https://docs.anthropic.com/en/docs/claude-code/google-vertex-ai)
 
@@ -87,4 +87,4 @@ nix run github:juspay/vertex -- --dangerously-skip-permissions
 
 ## Goals
 
-Combine `google-cloud-sdk`, `gemini-cli`, `claude-code` (from nixpkgs) to provide a seamless entrypoint to getting AI agents working using Claude 4 Sonnet through Google Vertex AI platform (provided by your organization).
+Combine `google-cloud-sdk`, `gemini-cli`, `claude-code` (from nixpkgs) to provide a seamless entrypoint to getting AI agents working using Claude Sonnet 4.5 through Google Vertex AI platform (provided by your organization).

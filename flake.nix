@@ -19,7 +19,7 @@
         let
           # Configuration - Update these values for your setup
           vertexRegion = "us-east5";
-          modelName = "claude-sonnet-4";
+          modelName = "claude-sonnet-4-5";
           smallModelName = "claude-3-5-haiku";
           
           select-gcloud-project = pkgs.writeShellApplication {
