@@ -8,8 +8,7 @@
 
   inputs = {
     # Temporarily pinned to specific commit
-    # TODO: Revert to nixos-unstable after https://github.com/NixOS/nixpkgs/pull/447431 is propagated to mainline cache
-    nixpkgs.url = "github:NixOS/nixpkgs/17aa85c";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
   };
 
