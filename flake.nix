@@ -51,9 +51,6 @@
                 "$HOME/.claude.json"
                 "$HOME/.config/gcloud"
               ];
-              rox = [
-                "$(which gcloud)"
-              ];
               rwx = [ "." ];
               env = [
                 "HOME"  # Needed for gcloud and claude to resolve ~/ paths for config/state files
