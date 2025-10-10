@@ -15,6 +15,8 @@
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" "x86_64-darwin" ];
 
+      imports = [ ./landrun.nix ];
+
       flake.overlays.default = final: prev: {
         vertex-claude = prev.callPackage ./package.nix { };
       };
@@ -22,7 +24,6 @@
       perSystem = { pkgs, system, ... }:
         let
           vertex-claude = pkgs.callPackage ./package.nix { };
-          vertex-claude-sandboxed = pkgs.callPackage ./package-sandboxed.nix { inherit vertex-claude; };
         in
         {
           _module.args.pkgs = import inputs.nixpkgs {
@@ -34,15 +35,50 @@
 
           packages = {
             default = vertex-claude;
-            sandboxed = vertex-claude-sandboxed;
           };
 
-          apps = {
-            vertex-claude-sandboxed = {
-              type = "app";
-              program = "${vertex-claude-sandboxed}/bin/vertex-claude-sandboxed";
-              meta.description = "Claude Code for Google Vertex AI running in a sandboxed landrun environment";
+          landrunApps.vertex-claude-sandboxed = {
+            program = "${vertex-claude}/bin/claude";
+            cli = {
+              rw = [
+                "$HOME/.claude"
+                "$HOME/.claude.json"
+                "$HOME/.config/gcloud"
+                "/dev/null"
+                "/dev/tty"
+                "/dev/pts"
+                "/dev/ptmx"
+                "/tmp"
+              ];
+              rox = [
+                "/dev/zero"
+                "/dev/full"
+                "/dev/random"
+                "/dev/urandom"
+                "/usr"
+                "/lib"
+                "/lib64"
+                "/nix/store"
+                "/etc/resolv.conf"
+                "/etc/ssl"
+                "/etc/terminfo"
+                "/usr/share/terminfo"
+                "$(which gcloud)"
+              ];
+              rwx = [ "." ];
+              env = [
+                "PATH"
+                "HOME"
+                "TERM"
+                "SHELL"
+                "COLORTERM"
+                "LANG"
+                "LC_ALL"
+              ];
+              unrestrictedNetwork = true;
+              addExec = true;
             };
+            meta.description = "Claude Code for Google Vertex AI running in a sandboxed landrun environment";
           };
           
           devShells.default = pkgs.mkShell {
