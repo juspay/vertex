@@ -9,13 +9,14 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
+    landrun-nix.url = "github:srid/landrun-nix/init";
   };
 
   outputs = inputs@{ flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" "x86_64-darwin" ];
 
-      imports = [ ./landrun.nix ];
+      imports = [ inputs.landrun-nix.flakeModule ];
 
       flake.overlays.default = final: prev: {
         vertex-claude = prev.callPackage ./package.nix { };
