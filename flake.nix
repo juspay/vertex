@@ -9,7 +9,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
-    landrun-nix.url = "github:srid/landrun-nix/init";
+    landrun-nix.url = "github:srid/landrun-nix";
   };
 
   outputs = inputs@{ flake-parts, ... }:
