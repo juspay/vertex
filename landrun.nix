@@ -18,6 +18,38 @@ in
                 description = "The program to wrap with landrun (e.g., \${pkgs.foo}/bin/foo)";
               };
 
+              features = mkOption {
+                type = types.submodule {
+                  options = {
+                    tty = mkOption {
+                      type = types.bool;
+                      default = false;
+                      description = "Enable full TTY/terminal support for interactive applications";
+                    };
+
+                    nix = mkOption {
+                      type = types.bool;
+                      default = true;
+                      description = "Enable access to Nix store and system paths";
+                    };
+
+                    network = mkOption {
+                      type = types.bool;
+                      default = false;
+                      description = "Enable network access with DNS resolution and SSL certificates";
+                    };
+
+                    tmp = mkOption {
+                      type = types.bool;
+                      default = true;
+                      description = "Enable read-write access to /tmp for temporary files";
+                    };
+                  };
+                };
+                default = { };
+                description = "High-level feature flags for common patterns";
+              };
+
               cli = mkOption {
                 type = types.submodule {
                   options = {
@@ -94,6 +126,61 @@ in
             };
 
             config = {
+              # Auto-configure CLI options based on high-level flags
+              cli = lib.mkMerge [
+                # TTY support
+                (lib.mkIf config.features.tty {
+                  rw = [
+                    "/dev/null"
+                    "/dev/tty"
+                    "/dev/pts"
+                    "/dev/ptmx"
+                  ];
+                  rox = [
+                    "/dev/zero"
+                    "/dev/full"
+                    "/dev/random"
+                    "/dev/urandom"
+                    "/etc/terminfo"
+                    "/usr/share/terminfo"
+                  ];
+                  env = [
+                    "TERM"
+                    "SHELL"
+                    "COLORTERM"
+                    "LANG"
+                    "LC_ALL"
+                  ];
+                })
+
+                # Nix support
+                (lib.mkIf config.features.nix {
+                  rox = [
+                    "/nix/store"
+                    "/usr"
+                    "/lib"
+                    "/lib64"
+                  ];
+                  env = [
+                    "PATH"  # Required for programs to find executables
+                  ];
+                })
+
+                # Network support
+                (lib.mkIf config.features.network {
+                  rox = [
+                    "/etc/resolv.conf"
+                    "/etc/ssl"
+                  ];
+                  unrestrictedNetwork = true;
+                })
+
+                # Tmp support
+                (lib.mkIf config.features.tmp {
+                  rw = [ "/tmp" ];
+                })
+              ];
+
               wrappedPackage =
                 let
                   # Don't escape shell args - let them expand at runtime

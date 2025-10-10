@@ -39,44 +39,24 @@
 
           landrunApps.vertex-claude-sandboxed = {
             program = "${vertex-claude}/bin/claude";
+            features = {
+              tty = true;
+              nix = true;
+              network = true;
+            };
             cli = {
               rw = [
                 "$HOME/.claude"
                 "$HOME/.claude.json"
                 "$HOME/.config/gcloud"
-                "/dev/null"
-                "/dev/tty"
-                "/dev/pts"
-                "/dev/ptmx"
-                "/tmp"
               ];
               rox = [
-                "/dev/zero"
-                "/dev/full"
-                "/dev/random"
-                "/dev/urandom"
-                "/usr"
-                "/lib"
-                "/lib64"
-                "/nix/store"
-                "/etc/resolv.conf"
-                "/etc/ssl"
-                "/etc/terminfo"
-                "/usr/share/terminfo"
                 "$(which gcloud)"
               ];
               rwx = [ "." ];
               env = [
-                "PATH"
-                "HOME"
-                "TERM"
-                "SHELL"
-                "COLORTERM"
-                "LANG"
-                "LC_ALL"
+                "HOME"  # Needed for gcloud and claude to resolve ~/ paths for config/state files
               ];
-              unrestrictedNetwork = true;
-              addExec = true;
             };
             meta.description = "Claude Code for Google Vertex AI running in a sandboxed landrun environment";
           };
