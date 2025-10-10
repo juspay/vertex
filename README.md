@@ -76,6 +76,20 @@ vertex-claude --dangerously-skip-permissions
 nix run github:juspay/vertex -- --dangerously-skip-permissions
 ```
 
+### Sandboxed mode (Linux only)
+
+For enhanced security, you can run `vertex-claude` in a sandboxed environment using [landrun](https://github.com/srid/landrun-nix):
+
+```sh
+nix run github:juspay/vertex#vertex-claude-sandboxed
+```
+
+This restricts filesystem and network access to only what's necessary for Claude Code to function. The sandbox allows:
+- Read-write access to your Claude config (`~/.claude`, `~/.claude.json`, `~/.config/gcloud`)
+- Read-write-execute access to the current directory
+- Network access for API calls
+- Nix functionality for package management
+
 > [!NOTE]
 > When you run `vertex-claude`, it will automatically:
 > - Use your only project if you have exactly one
