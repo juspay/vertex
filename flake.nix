@@ -39,7 +39,12 @@
           };
 
           landrunApps.vertex-claude-sandboxed = {
-            program = "${vertex-claude}/bin/claude";
+            program = "${vertex-claude.overrideAttrs (old: {
+              postBuild = (old.postBuild or "") + ''
+                wrapProgram $out/bin/claude \
+                  --add-flags "--dangerously-skip-permissions"
+              '';
+            })}/bin/claude";
             features = {
               tty = true;
               nix = true;

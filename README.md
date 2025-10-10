@@ -82,13 +82,17 @@ For enhanced security, you can run `vertex-claude` in a sandboxed environment us
 
 ```sh
 nix run github:juspay/vertex#vertex-claude-sandboxed
+
+# You can pass additional arguments:
+nix run github:juspay/vertex#vertex-claude-sandboxed -- --verbose
 ```
 
-This restricts filesystem and network access to only what's necessary for Claude Code to function. The sandbox allows:
-- Read-write access to your Claude config (`~/.claude`, `~/.claude.json`, `~/.config/gcloud`)
-- Read-write-execute access to the current directory
-- Network access for API calls
-- Nix functionality for package management
+This restricts filesystem and network access to only what's necessary for Claude Code to function. The sandbox:
+- Automatically runs with `--dangerously-skip-permissions` (safe since filesystem access is already restricted)
+- Allows read-write access to your Claude config (`~/.claude`, `~/.claude.json`, `~/.config/gcloud`)
+- Allows read-write-execute access to the current directory only
+- Enables network access for API calls
+- Provides Nix functionality for package management
 
 > [!NOTE]
 > When you run `vertex-claude`, it will automatically:
