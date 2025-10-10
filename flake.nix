@@ -22,17 +22,27 @@
       perSystem = { pkgs, system, ... }:
         let
           vertex-claude = pkgs.callPackage ./package.nix { };
+          vertex-claude-sandboxed = pkgs.callPackage ./package-sandboxed.nix { inherit vertex-claude; };
         in
         {
           _module.args.pkgs = import inputs.nixpkgs {
             inherit system;
             config.allowUnfreePredicate = pkg: builtins.elem (pkg.pname or pkg.name or "") [ "claude-code" ];
           };
-          
+
           formatter = pkgs.nixpkgs-fmt;
-          
+
           packages = {
             default = vertex-claude;
+            sandboxed = vertex-claude-sandboxed;
+          };
+
+          apps = {
+            vertex-claude-sandboxed = {
+              type = "app";
+              program = "${vertex-claude-sandboxed}/bin/vertex-claude-sandboxed";
+              meta.description = "Claude Code for Google Vertex AI running in a sandboxed landrun environment";
+            };
           };
           
           devShells.default = pkgs.mkShell {
