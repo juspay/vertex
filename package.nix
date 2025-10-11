@@ -50,7 +50,8 @@ writeShellApplication {
     set -euo pipefail
 
     # Check if already authenticated
-    if ! gcloud auth application-default print-access-token &>/dev/null; then
+    if ! AUTH_OUTPUT=$(gcloud auth application-default print-access-token 2>&1); then
+      echo "$AUTH_OUTPUT" >&2
       echo "Authentication required. Opening browser..."
       gcloud auth login
       # For some reason, we must re-auth
