@@ -90,7 +90,7 @@ writeShellApplication {
     export VERTEX_REGION_CLAUDE_3_7_SONNET=us-east5
     export VERTEX_REGION_CLAUDE_4_0_OPUS=europe-west4
     export VERTEX_REGION_CLAUDE_4_0_SONNET=us-east5
-    export VERTEX_REGION_CLAUDE_4_5_SONNET=us-east5;
+    export VERTEX_REGION_CLAUDE_4_5_SONNET=us-east5
 
     export ANTHROPIC_MODEL='${modelName}'
     export ANTHROPIC_SMALL_FAST_MODEL='${smallModelName}'
