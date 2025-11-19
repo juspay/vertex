@@ -18,6 +18,21 @@
         "type": "github"
       }
     },
+    "landrun-nix": {
+      "locked": {
+        "lastModified": 1760138485,
+        "narHash": "sha256-ZzXk7ujO4bkpOzB12lgVE5BjmVkP5FWguFmLXRoXGuM=",
+        "owner": "srid",
+        "repo": "landrun-nix",
+        "rev": "827925fe6735c6048e1c6e687c0b213657e20760",
+        "type": "github"
+      },
+      "original": {
+        "owner": "srid",
+        "repo": "landrun-nix",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1763283776,
@@ -52,6 +67,7 @@
     "root": {
       "inputs": {
         "flake-parts": "flake-parts",
+        "landrun-nix": "landrun-nix",
         "nixpkgs": "nixpkgs"
       }
     }
