@@ -9,7 +9,7 @@
 let
   vertexRegion = "us-east5";
   modelName = "claude-sonnet-4-5";
-  smallModelName = "claude-3-5-haiku";
+  smallModelName = "claude-haiku-4-5@20251001";
 
   select-gcloud-project = writeShellApplication {
     name = "select-gcloud-project";
@@ -85,7 +85,7 @@ writeShellApplication {
     export DISABLE_PROMPT_CACHING=1
 
     # Optional: Override regions for specific models
-    export VERTEX_REGION_CLAUDE_3_5_HAIKU=us-central1
+    export VERTEX_REGION_CLAUDE_HAIKU_4_5=us-east5
     export VERTEX_REGION_CLAUDE_3_5_SONNET=us-east5
     export VERTEX_REGION_CLAUDE_3_7_SONNET=us-east5
     export VERTEX_REGION_CLAUDE_4_0_OPUS=europe-west4
